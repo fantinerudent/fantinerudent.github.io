@@ -70,6 +70,7 @@ var playingFunction = function() {
 
   rules.appendChild(buttonToAdd);
   buttonToAdd.addEventListener("click", function() {
+  
     if (
       pusheenBalle.style.opacity >= "1" &&
       pusheenBad.style.opacity >= "1" &&
@@ -93,7 +94,6 @@ var playingFunction = function() {
         tableauxLogos[compteurDePoints].style.display = "initial";
         rules.textContent =
           "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
-        playingButton = false;
         generateAleatoireDeBesoin();
         opacityPusheenBad = 0.1;
         opacityPusheenBalle = 0.1;

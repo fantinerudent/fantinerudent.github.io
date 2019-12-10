@@ -313,14 +313,14 @@ var valeurDeplacementY = 2;
 
 var deplacementDonut = setInterval(function() {
   if (xDonut >= document.body.clientWidth - flyingDonut.width) {
-    valeurDeplacementX = -2;
+    valeurDeplacementX = -1;
   } else if (xDonut <= 0) {
-    valeurDeplacementX = 2;
+    valeurDeplacementX = 1;
   }
-  if (yDonut >= document.body.clientHeight) {
-    valeurDeplacementY = -2;
+  if (yDonut >= document.body.clientHeight - flyingDonut.height) {
+    valeurDeplacementY = -1;
   } else if (yDonut <= 0) {
-    valeurDeplacementY = 2;
+    valeurDeplacementY = 1;
   }
 
   xDonut += valeurDeplacementX;
@@ -336,8 +336,10 @@ var deplacementDonut = setInterval(function() {
 
 var buttonFeed = document.getElementById("buttonFeed");
 buttonFeed.addEventListener("click", function() {
+  
   stopDelais();
   if (feedingButton === true) {
+    feedingButton=false;
     feedingFunction();
   }
 }); // appel de la fonction feedingButton() présente dans le fichier fonctionnalites.js si le feedingButton est passé à true.
@@ -418,6 +420,7 @@ ecranTamagoshi.appendChild(pusheenRolling);
 buttonHug.addEventListener("click", function() {
   stopDelais();
   if (huggingButton === true) {
+    huggingButton=false;
     huggingFunction();
     ecranTamagoshi.appendChild(pusheenHug);
   }
@@ -453,7 +456,6 @@ pusheenRolling.addEventListener("mouseup", function() {
       textSpan.style.display = "block";
     } else {
       setTimeout(function() {
-        huggingButton = false;
         generateAleatoireDeBesoin();
         tableauxLogos[compteurDePoints].style.display = "initial";
         buttonHug.style.backgroundColor = "rgba(221, 17, 85, 1)";
@@ -496,6 +498,7 @@ var buttonPlay = document.getElementById("buttonPlay");
 buttonPlay.addEventListener("click", function() {
   stopDelais();
   if (playingButton === true) {
+    playingButton=false;
     playingFunction();
   }
 });
