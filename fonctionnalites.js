@@ -82,8 +82,8 @@ var playingFunction = function() {
       pusheenBad.style.display = "none";
       pusheenVideoGame.style.display = "none";
       spriteChat.style.display = "block";
-      compteurDePoints++;
-      if (compteurDePoints > 10) {
+      compteurDePoints+=2;
+      if (compteurDePoints >= 10) {
         youWin();
         screenOfNeeds(
           "Vous avez gagné !! Allez jeter un oeil sur les compétences que vous avez débloqué... Vous en apprendrez surement plus sur la personne à l'initiative de ce jeu !",
@@ -92,6 +92,7 @@ var playingFunction = function() {
         textSpan.style.display = "block";
       } else {
         tableauxLogos[compteurDePoints].style.display = "initial";
+        tableauxLogos[compteurDePoints-1].style.display = "initial";
         rules.textContent =
           "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
         generateAleatoireDeBesoin();
