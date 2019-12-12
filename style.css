@@ -67,8 +67,8 @@ h2 {
   position: absolute;
   top: 40vh;
   left: 39vw;
-  width: 24vw;
-  height: 57%;
+  width: 300px;
+  height: 325px;
   background-color: rgba(106, 1, 54, 1);
   border-radius: 120px 120px 60px 60px;
   border: solid rgba(245, 100, 118, 1) 4px;

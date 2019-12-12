@@ -98,29 +98,29 @@ function stopDelais() {
 
 // création des 3 lanceurs d'evenements ( nourrir, caliner, jouer) //
 
-function loopOfNeedsFeeding() {
-  declanchement();
-  feedingButton = true;
-  screenOfNeeds(" 😋 Pusheen a très faim 🍽️ ", "alert");
-  textSpan.style.display = "block";
-  buttonFeed.style.backgroundColor = "yellow";
-}
+// function loopOfNeedsFeeding() {
+//   declanchement();
+//   feedingButton = true;
+//   screenOfNeeds(" 😋 Pusheen a très faim 🍽️ ", "alert");
+//   textSpan.style.display = "block";
+//   buttonFeed.style.backgroundColor = "yellow";
+// }
 
-function loopOfNeedsHugging() {
-  declanchement();
-  huggingButton = true;
-  screenOfNeeds(" 🤗 Pusheen a besoin d'être calinée 👐 ", "alert");
-  textSpan.style.display = "block";
-  buttonHug.style.backgroundColor = "yellow";
-}
+// function loopOfNeedsHugging() {
+//   declanchement();
+//   huggingButton = true;
+//   screenOfNeeds(" 🤗 Pusheen a besoin d'être calinée 👐 ", "alert");
+//   textSpan.style.display = "block";
+//   buttonHug.style.backgroundColor = "yellow";
+// }
 
-function loopOfNeedsPlaying() {
-  declanchement();
-  playingButton = true;
-  screenOfNeeds("Pusheen veut jouer ! 🤾‍♀️ ", "alert");
-  textSpan.style.display = "block";
-  buttonPlay.style.backgroundColor = "yellow";
-}
+// function loopOfNeedsPlaying() {
+//   declanchement();
+//   playingButton = true;
+//   screenOfNeeds("Pusheen veut jouer ! 🤾‍♀️ ", "alert");
+//   textSpan.style.display = "block";
+//   buttonPlay.style.backgroundColor = "yellow";
+// }
 
 // creation d'une fonction qui renvoie un chiffre aléatoire entre 1 & 3.
 
