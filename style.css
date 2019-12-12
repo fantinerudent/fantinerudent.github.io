@@ -83,20 +83,20 @@ h2 {
 }
 
 #buttonPlay {
-  /* position: relative; */
+  position: relative;
   left: 74%;
   bottom: -29px;
 }
 
 #buttonHug {
-  /* position: relative; */
+  position: relative;
   left: 42%;
   bottom: 21px;
 }
 
 #buttonFeed {
   position: relative;
-  left: 5vh;
+  left: 10%;
   bottom: 22%;
 }
 

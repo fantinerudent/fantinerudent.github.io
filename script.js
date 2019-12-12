@@ -1,8 +1,9 @@
 "use strict";
 
-/**
- * WHERE I STOCK THE VARIABLES/CONST' I'LL USE.
- */
+
+  /**
+   * WHERE I STOCK THE VARIABLES/CONST' I'LL USE.
+   */
 // var ecranTamagoshi = document.getElementById("ecranTamagoshi");
 var spriteChat = document.getElementById("contenu");
 var compteurDePoints = -1;
@@ -34,7 +35,7 @@ var creationElement = function(src, id, isDraggable) {
 
 var screenOfNeeds = function(message, className) {
   $("#ecranTamagoshi")
-    .removeClass("regularEcranTamagoshi")
+  .removeClass("regularEcranTamagoshi")
     .addClass(className);
   textSpan.textContent = message;
   spriteChat.style.display = "none";
@@ -86,7 +87,7 @@ var delaisReponseBesoin = function() {
     buttonHug.style.backgroundColor = "rgba(221, 17, 85, 1)";
     ecranTamagoshi.appendChild(pusheenCrying);
     rules.textContent =
-      "Vous avez perdu la partie, vous n'avez pas pris soin de mon petit Pusheen... Je vais devoir m'occuper de lui et le consoler... Soyez plus attentif la prochaine fois! ( - pour rejouer, actualiser la page - )";
+    "Vous avez perdu la partie, vous n'avez pas pris soin de mon petit Pusheen... Je vais devoir m'occuper de lui et le consoler... Soyez plus attentif la prochaine fois! ( - pour rejouer, actualiser la page - )";
   }
 };
 
@@ -138,7 +139,7 @@ var generateAleatoireDeBesoin = function getRandomInt() {
       setTimeout(loopOfNeedsPlaying, 10000);
       break;
     default:
-  }
+    }
 };
 
 // création de l'évenement lorsque toutes les compétences ont été débloquées.
@@ -200,40 +201,13 @@ var bubbleFood = creationElement(
   false
 );
 var pusheenDonut = creationElement("pusheen/donut.png", "pusheenDonut", false);
-var flyingDonut = creationElement("pusheen/donutfood.png", "flyingDonut", true);
-document.body.appendChild(flyingDonut);
+
 pusheenDonut.style.display = "none";
 pusheenHungry.style.display = "none";
 bubbleFood.style.display = "none";
 
-//  *  HANDLING THE MOVING OF THE FLYING DONUT HERE :
-//  *
-//  */
 
-var xDonut = 0;
-var yDonut = 0;
-var valeurDeplacementX = 2;
-var valeurDeplacementY = 2;
-
-var deplacementDonut = setInterval(function() {
-  if (xDonut >= document.body.clientWidth - flyingDonut.width) {
-    valeurDeplacementX = -1;
-  } else if (xDonut <= 0) {
-    valeurDeplacementX = 1;
-  }
-  if (yDonut >= document.body.clientHeight - flyingDonut.height) {
-    valeurDeplacementY = -1;
-  } else if (yDonut <= 0) {
-    valeurDeplacementY = 1;
-  }
-
-  xDonut += valeurDeplacementX;
-  yDonut += valeurDeplacementY;
-  flyingDonut.style.top = yDonut + "px";
-  flyingDonut.style.left = xDonut + "px";
-}, 1);
-/**
- *
+ /*
  * EVENT - FEEDING PUSHEEN
  *
  */
@@ -248,58 +222,7 @@ buttonFeed.addEventListener("click", function() {
   }
 }); // appel de la fonction feedingButton() présente dans le fichier fonctionnalites.js si le feedingButton est passé à true.
 
-/*
-Events autour du Donuts . drag&drop
-*/
 
-// EVENT QUAND ON ATTRAPE LE DONUT : DRAGSTART
-flyingDonut.addEventListener("dragstart", function(event) {
-  flyingDonut.style.cursor = "grabbing";
-});
-
-// EVENT POUR PERMETTRE DE GLISSER LE DONUT SUR LA  : DRAGOVER
-bubbleFood.addEventListener("dragover", function(event) {
-  // par defaut les elements ne peuvent pas être droppés dans d'autres. Il faut donc empecher le comportement par défaut :
-  event.preventDefault();
-});
-
-// EVENT QUAND ON PASSE LE DONUT SUR LA FENETRE : DRAGENTER
-bubbleFood.addEventListener("dragenter", function(event) {
-  // Met en surbrillance la cible de drop potentielle lorsque l'élément glissable y entre
-  bubbleFood.style.backgroundColor = "yellow";
-  bubbleFood.style.borderRadius = "40px";
-});
-
-//  EVENT QUAND ON LACHE LE DONUT SUR LA FENETRE : DROP
-bubbleFood.addEventListener("drop", function(event) {
-  event.preventDefault();
-  compteurDePoints++;
-  bubbleFood.style.display = "none";
-  pusheenHungry.style.display = "none";
-  flyingDonut.style.display = "none";
-  pusheenDonut.style.display = "block";
-  if (compteurDePoints > 10) {
-    youWin();
-    pusheenDonut.style.display = "none";
-    screenOfNeeds(
-      "Vous avez gagné !! Allez jeter un oeil sur les compétences que vous avez débloqué... Vous en apprendrez surement plus sur la personne à l'initiative de ce jeu !",
-      "alert"
-    );
-    textSpan.style.display = "block";
-  } else {
-    tableauxLogos[compteurDePoints].style.display = "initial";
-    generateAleatoireDeBesoin();
-    setTimeout(function() {
-      rules.textContent =
-        "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
-      feedingButton = false;
-
-      buttonFeed.style.backgroundColor = "rgba(221, 17, 85, 1)";
-      pusheenDonut.style.display = "none";
-      spriteChat.style.display = "block";
-    }, 3000);
-  }
-});
 
 /***
  * EVENT - PUSHEEN HUG
@@ -322,9 +245,9 @@ var pusheenRolling = creationElement(
 ecranTamagoshi.appendChild(pusheenRolling);
 
 buttonHug.addEventListener("click", function() {
-  
+     stopDelais();
   if (huggingButton === true) {
-    stopDelais();
+
     huggingButton=false;
     huggingFunction();
     ecranTamagoshi.appendChild(pusheenHug);
@@ -343,15 +266,15 @@ var total = 0;
 pusheenRolling.addEventListener("mouseup", function() {
   end = new Date();
   total = end - start;
-
+  
   if (total >= 4000) {
     compteurDePoints++;
     rules.textContent =
-      "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
+    "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
 
     pusheenRolling.style.display = "none";
     pusheenHug.style.display = "block";
-    if (compteurDePoints > 10) {
+    if (compteurDePoints >= 10) {
       youWin();
       screenOfNeeds(
         "Vous avez gagné !! Allez jeter un oeil sur les compétences que vous avez débloqué... Vous en apprendrez surement plus sur la personne à l'initiative de ce jeu !",
@@ -401,9 +324,8 @@ ecranTamagoshi.appendChild(pusheenVideoGame);
 var buttonPlay = document.getElementById("buttonPlay");
 
 buttonPlay.addEventListener("click", function() {
-  
+  stopDelais();
   if (playingButton === true) {
-    stopDelais();
     playingButton=false;
     playingFunction();
   }

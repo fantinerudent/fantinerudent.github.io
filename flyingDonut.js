@@ -1,6 +1,9 @@
-var flyingDonut = creationElement("pusheen/donutfood.png", "flyingDonut", true);
-document.body.appendChild(flyingDonut);
+"use strict"
 
+
+  var flyingDonut = creationElement("pusheen/donutfood.png", "flyingDonut", true);
+  document.body.appendChild(flyingDonut);
+  
 //  *  HANDLING THE MOVING OF THE FLYING DONUT HERE :
 //  *
 //  */
@@ -28,7 +31,7 @@ var deplacementDonut = setInterval(function() {
   yDonut += valeurDeplacementY;
   flyingDonut.style.top = yDonut + "px";
   flyingDonut.style.left = xDonut + "px";
-},50);
+},5);
 
 /*
 Events autour du Donuts . drag&drop
@@ -82,3 +85,5 @@ flyingDonut.addEventListener("dragstart", function(event) {
       }, 3000);
     }
   });
+      
+  
