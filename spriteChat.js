@@ -21,10 +21,10 @@ window.addEventListener("load", function() {
           masqueX -= 4;
           masque.style.left = masqueX + "px";
           if (spriteChat.style.top == "0px" || spriteChat.style.top == "") {
-            spriteChat.style.top = "0px";
+            spriteChat.style.top = "-100px";
             spriteChat.style.left = "-300px";
           } else {
-            spriteChat.style.top = "-105px";
+            spriteChat.style.top = "0px";
             spriteChat.style.left = "-300px";
           }
         } else {

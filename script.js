@@ -98,29 +98,29 @@ function stopDelais() {
 
 // création des 3 lanceurs d'evenements ( nourrir, caliner, jouer) //
 
-// function loopOfNeedsFeeding() {
-//   declanchement();
-//   feedingButton = true;
-//   screenOfNeeds(" 😋 Pusheen a très faim 🍽️ ", "alert");
-//   textSpan.style.display = "block";
-//   buttonFeed.style.backgroundColor = "yellow";
-// }
+function loopOfNeedsFeeding() {
+  declanchement();
+  feedingButton = true;
+  screenOfNeeds(" 😋 Pusheen a très faim 🍽️ ", "alert");
+  textSpan.style.display = "block";
+  buttonFeed.style.backgroundColor = "yellow";
+}
 
-// function loopOfNeedsHugging() {
-//   declanchement();
-//   huggingButton = true;
-//   screenOfNeeds(" 🤗 Pusheen a besoin d'être calinée 👐 ", "alert");
-//   textSpan.style.display = "block";
-//   buttonHug.style.backgroundColor = "yellow";
-// }
+function loopOfNeedsHugging() {
+  declanchement();
+  huggingButton = true;
+  screenOfNeeds(" 🤗 Pusheen a besoin d'être calinée 👐 ", "alert");
+  textSpan.style.display = "block";
+  buttonHug.style.backgroundColor = "yellow";
+}
 
-// function loopOfNeedsPlaying() {
-//   declanchement();
-//   playingButton = true;
-//   screenOfNeeds("Pusheen veut jouer ! 🤾‍♀️ ", "alert");
-//   textSpan.style.display = "block";
-//   buttonPlay.style.backgroundColor = "yellow";
-// }
+function loopOfNeedsPlaying() {
+  declanchement();
+  playingButton = true;
+  screenOfNeeds("Pusheen veut jouer ! 🤾‍♀️ ", "alert");
+  textSpan.style.display = "block";
+  buttonPlay.style.backgroundColor = "yellow";
+}
 
 // creation d'une fonction qui renvoie un chiffre aléatoire entre 1 & 3.
 
@@ -161,103 +161,6 @@ $(function() {
     "Bonjour et bienvenue. Aujourd'hui vous allez devoir prendre soin de mon petit chat, Pusheen ! Il a besoin de beaucoup d'attention, et que vous repondiez rapidement à ses besoins... Vous pouvez déplacer Pusheen à l'aide des flèches du clavier... Ne vous inquiètez pas, Pusheen sait tout à fait se faire comprendre lorsqu'il a besoin de quelque chose!";
 });
 
-/***
- *  SPRITE Chaton
- //  *
- */
-
-window.addEventListener("load", function() {
-  spriteChat.style.display = "block";
-  var masqueX = masque.offsetLeft;
-  var masqueY = masque.offsetTop;
-  var spriteChatX = spriteChat.offsetLeft;
-  var spriteChatY = spriteChat.offsetTop;
-
-  // listener event quand user presse touche
-  window.onkeydown = function(event) {
-    var code = event.keyCode;
-    switch (code) {
-      case 37:
-        if (masqueX >= -30) {
-          masqueX -= 4;
-          masque.style.left = masqueX + "px";
-          if (spriteChat.style.top == "0px" || spriteChat.style.top == "") {
-            spriteChat.style.top = "-150px";
-            spriteChat.style.left = "-436px";
-          } else {
-            spriteChat.style.top = "0px";
-            spriteChat.style.left = "-440px";
-          }
-        } else {
-          spriteChat.style.left = "-300px";
-          spriteChat.style.top = "-300px";
-        }
-        break;
-      case 38:
-        if (masqueY >= -20) {
-          masqueY -= 4;
-          masque.style.top = masqueY + "px";
-          if (spriteChat.style.top == "0px" || spriteChat.style.top == "") {
-            spriteChat.style.top = "-150px";
-            spriteChat.style.left = "0px";
-          } else {
-            spriteChat.style.top = "0px";
-            spriteChat.style.left = "0px";
-          }
-        } else {
-          spriteChat.style.left = "-300px";
-          spriteChat.style.top = "-300px";
-        }
-
-        break;
-      case 39:
-        if (masqueX <= 165) {
-          masqueX += 4;
-          masque.style.left = masqueX + "px";
-          if (spriteChat.style.top == "0px" || spriteChat.style.top == "") {
-            spriteChat.style.top = "-150px";
-            spriteChat.style.left = "-158px";
-          } else {
-            spriteChat.style.top = "0px";
-            spriteChat.style.left = "-154px";
-          }
-        } else {
-          spriteChat.style.left = "-300px";
-          spriteChat.style.top = "-300px";
-        }
-        break;
-
-      case 40:
-        if (masqueY <= 155) {
-          masqueY += 4;
-          masque.style.top = masqueY + "px";
-          if (spriteChat.style.top == "0px" || spriteChat.style.top == "") {
-            spriteChat.style.top = "-150px";
-            spriteChat.style.left = "-295px";
-          } else {
-            spriteChat.style.top = "0px";
-            spriteChat.style.left = "-290px";
-          }
-        } else {
-          spriteChat.style.left = "-300px";
-          spriteChat.style.top = "-300px";
-        }
-
-      /**
-       *  LA j'ai envie de rajouter une fonctionnalité miaou qd on appuie sur Espace.
-       *
-       */
-      // window.onkeyup = function(event) {
-      //   var code = event.keyCode;
-      //   if (code === 13) {
-      //     spriteChat.style.left = "0px";
-      //     spriteChat.style.top = "0px";
-      //   }
-      // };
-      //
-    }
-  };
-});
 
 /***
  * CREATION OF MY PUSHEEN CV
