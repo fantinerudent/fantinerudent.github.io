@@ -68,7 +68,7 @@ h2 {
   top: 40vh;
   left: 39vw;
   width: 24vw;
-  height: 57vh;
+  height: 57%;
   background-color: rgba(106, 1, 54, 1);
   border-radius: 120px 120px 60px 60px;
   border: solid rgba(245, 100, 118, 1) 4px;
@@ -245,7 +245,11 @@ p {
 button {
   height: 30px;
   width: 100px;
-  background-color: yellow
+ border: 4px red solid;
+ border-radius: 30px;
+ font-style: italic;
+ font-family: 'Solway', serif;
+  background-color: yellow;
 }
 
 .regularEcranTamagoshi {

@@ -11,7 +11,7 @@ var rules = document.getElementById("rules");
 var masque = document.getElementById("container");
 var textSpan = document.getElementById("texte");
 var nombreDeVies = 2;
-// var buttonPlay = document.getElementById("buttonPlay");
+
 
 // Creation of 3 boleans I'll use to unlock the buttons of my miaoutchy:
 
@@ -68,7 +68,7 @@ var delaisReponseBesoin = function() {
       generateAleatoireDeBesoin();
       pusheenSad.style.display = "none";
       textSpan.style.display = "none";
-      rules.textContent = "Continuez à promenez Pusheen";
+      rules.textContent = "Continuez à promener Pusheen, il a besoin de se dégourdir les jambes ";
       buttonFeed.style.backgroundColor = "rgba(221, 17, 85, 1)";
       buttonPlay.style.backgroundColor = "rgba(221, 17, 85, 1)";
       buttonHug.style.backgroundColor = "rgba(221, 17, 85, 1)";

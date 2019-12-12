@@ -38,7 +38,7 @@ var huggingFunction = function() {
     .addClass("regularEcranTamagoshi");
 
   rules.textContent =
-    "Vous devez brosser Pusheen avec le peigne pendant plus de 4 secondes, maintenez bien le click !";
+    "Vous devez brosser Pusheen avec le peigne pendant plus de 4 secondes, maintenez bien le click de la souris enfoncé pendant 4 secondes sans interruption !";
   pusheenRolling.style.cursor = "url('pusheen/brush.png'), auto";
   pusheenRolling.style.display = "block";
   spriteChat.style.display = "none";
@@ -64,7 +64,7 @@ var playingFunction = function() {
   pusheenVideoGame.style.display = "inline-block";
   pusheenVideoGame.style.opacity = 0.1;
   rules.textContent =
-    "Pour faire jouer Pusheen, vous allez devoir trouver un moyen de faire complétement apparaitre les 4 petites images ... Quand c'est fini : cliquez sur ce bouton ==> ";
+    "Pour faire jouer Pusheen, vous allez devoir trouver un moyen de faire complétement apparaitre les 4 petites images ... indice: vous pouvez survoler, cliquer ou... Essayer de taper quelque chose pour voir ? Quand c'est fini : cliquez sur ce bouton ==> ";
   var buttonToAdd = document.createElement("button");
   buttonToAdd.textContent = "clique";
 
