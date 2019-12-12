@@ -98,6 +98,7 @@ function stopDelais() {
 
 // création des 3 lanceurs d'evenements ( nourrir, caliner, jouer) //
 
+
 function loopOfNeedsFeeding() {
   declanchement();
   feedingButton = true;
