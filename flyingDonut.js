@@ -28,7 +28,7 @@ var deplacementDonut = setInterval(function() {
   yDonut += valeurDeplacementY;
   flyingDonut.style.top = yDonut + "px";
   flyingDonut.style.left = xDonut + "px";
-}, 1);
+},50);
 
 /*
 Events autour du Donuts . drag&drop

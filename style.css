@@ -133,24 +133,24 @@ h2 {
 
 #pusheenHungry {
   position: absolute;
-  height: 24vh;
-  bottom: 3vh;
-  left: -3vw
+  height: 57%;
+  bottom: 7%;
+  left: -3%;
 }
 
 #bubbleFood {
   position: absolute;
-  height: 20vh;
-  left: 10vw;
-  top: 3vh;
+  height: 48%;
+  left: 50%;
+  top: 3%;
 }
 
 #pusheenHug {
-  position: absolute;
-  height: 31vh;
-  width: 44vw;
-  left: -12vw;
-  top: 5vh;
+  position: relative;
+  height: 70%;
+  width: 70%w;
+  left: -80px;
+  top:-40px;
   display: none;
 }
 
@@ -163,8 +163,8 @@ h2 {
 }
 
 #pusheenDonut {
-  position: absolute;
-  height: 31vh;
+  position: relative;
+  height: 70%;
   bottom: 30px;
   left: 20px
 }
@@ -173,8 +173,7 @@ h2 {
   position: absolute;
   height: 100px;
   display: none;
-  top:10vh;
-  left: 10vw;
+
 }
 
 p {
@@ -235,11 +234,11 @@ p {
 }
 
 #pusheenUnicorn, #pusheenBad, #pusheenBalle, #pusheenVideoGame {
-  height: 16vh;
+  height: 42%;
   position: relative;
   display: none;
-  top: -11vh;
-  left: 1vw;
+  top: -67px;
+  left: 1%;
 }
 
 button {
