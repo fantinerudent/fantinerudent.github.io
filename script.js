@@ -1,27 +1,26 @@
 "use strict";
 
+console.log("Bonjour développeurs avertis :  juste pour vous prévenir que les besoins de Pusheen sont aléatoires; ne perdez pas patience... ")
 
-  /**
-   * WHERE I STOCK THE VARIABLES/CONST' I'LL USE.
-   */
-// var ecranTamagoshi = document.getElementById("ecranTamagoshi");
+//  STOCKAGE DES VALEURS QUE JE VAIS UTILISER PLUSIEURS FOIS \\
 var spriteChat = document.getElementById("contenu");
-var compteurDePoints = -1;
-var tableauxLogos = document.querySelectorAll(".logo");
+var counterOfPoints = -1;
+var arrayOfLogos = document.querySelectorAll(".logo");
 var rules = document.getElementById("rules");
 var masque = document.getElementById("container");
 var textSpan = document.getElementById("texte");
-var nombreDeVies = 2;
+var numberOfLifes = 2;
 
 
-// Creation of 3 boleans I'll use to unlock the buttons of my miaoutchy:
+// CREATION DE TROIS VARIABLES STOCKANT DES BOLEANS QUI VONT \\
+// RENDRE LES BOUTONS UTILISABLES EN FONCTION DES BESOINS DE PUSHEEN\\
 
-var feedingButton = false;
-var huggingButton = false;
-var playingButton = false;
+var pusheenNeedsFood = false;
+var pusheenNeedsAhug = false;
+var pusheenNeedsToPlay = false;
 
-/* CREATION OF A FUNCTION in order to create new element.
- */
+// CREATION D'UNE FONCTION GLOBALE, UTILISEE A CHAQUE \\
+//  FOIS QUE J'AURAIS BESOIN DE CREER UN NOUVEAU PUSHEEN \\ 
 
 var creationElement = function(src, id, isDraggable) {
   var element = document.createElement("img");
@@ -31,69 +30,61 @@ var creationElement = function(src, id, isDraggable) {
   return element;
 };
 
-// Creation of the event which will let you know the needs of your pusheenCat :
+// CREATION D'UNE FONCTION GLOBALE \\
+// qui va permettre de modifier la classe et le message qui s'affiche sur l'écran 
+// en fonction du besoin de Pusheen \\
 
 var screenOfNeeds = function(message, className) {
-  $("#ecranTamagoshi")
-  .removeClass("regularEcranTamagoshi")
-    .addClass(className);
+  $("#ecranTamagoshi").removeClass("regularEcranTamagoshi").addClass(className);
   textSpan.textContent = message;
   spriteChat.style.display = "none";
 };
 
-// creation d'un settimeout qui se déclenche si l'utilisateur ne repond pas aux besoins:
+// CREATION D'UN EVENEMENT SET TIME OUT, QUI VA DECLANCHER LA PERTE D'UNE VIE \\
 
 var pusheenSad = creationElement("pusheen/sad.png", "pusheenSad", false);
-var pusheenCrying = creationElement(
-  "pusheen/crying.png",
-  "pusheenCrying",
-  false
-);
+var pusheenCrying = creationElement("pusheen/crying.png","pusheenCrying",false);
 
 var t;
-var declanchement = function() {
-  t = setTimeout(delaisReponseBesoin, 10000);
+var timerLoosingLife = function() {
+  t = setTimeout(lifeLost, 10000);
 };
 
-var delaisReponseBesoin = function() {
-  nombreDeVies -= 1;
-  rules.textContent =
-    "Vous n'avez pas répondu aux besoins de Pusheen, vous avez perdu une vie...";
+var lifeLost = function() {
+  numberOfLifes -= 1;
+  rules.textContent = "Vous n'avez pas répondu aux besoins de Pusheen, vous avez perdu une vie...";
   screenOfNeeds("Vous avez perdu une vie...", "alert");
-  if (nombreDeVies === 1) {
+  if (numberOfLifes === 1) {
     ecranTamagoshi.appendChild(pusheenSad);
     setTimeout(function() {
-      feedingButton = false;
-      huggingButton = false;
-      playingButton = false;
-      generateAleatoireDeBesoin();
+      pusheenNeedsFood = false;
+      pusheenNeedsAhug = false;
+      pusheenNeedsToPlay = false;
+      generateRandomNeed();
       pusheenSad.style.display = "none";
       textSpan.style.display = "none";
       rules.textContent = "Continuez à promener Pusheen, il a besoin de se dégourdir les jambes ";
       buttonFeed.style.backgroundColor = "rgba(221, 17, 85, 1)";
       buttonPlay.style.backgroundColor = "rgba(221, 17, 85, 1)";
       buttonHug.style.backgroundColor = "rgba(221, 17, 85, 1)";
-      $("#ecranTamagoshi")
-        .removeClass("alert")
-        .addClass("regularEcranTamagoshi");
+      $("#ecranTamagoshi").removeClass("alert").addClass("regularEcranTamagoshi");
       spriteChat.style.display = "block";
     }, 5000);
-  } else if (nombreDeVies === 0) {
-    feedingButton = false;
-    huggingButton = false;
-    playingButton = false;
+  } else if (numberOfLifes === 0) {
+    pusheenNeedsFood = false;
+    pusheenNeedsAhug = false;
+    pusheenNeedsToPlay = false;
     buttonFeed.style.backgroundColor = "rgba(221, 17, 85, 1)";
     buttonPlay.style.backgroundColor = "rgba(221, 17, 85, 1)";
     buttonHug.style.backgroundColor = "rgba(221, 17, 85, 1)";
     ecranTamagoshi.appendChild(pusheenCrying);
-    rules.textContent =
-    "Vous avez perdu la partie, vous n'avez pas pris soin de mon petit Pusheen... Je vais devoir m'occuper de lui et le consoler... Soyez plus attentif la prochaine fois! ( - pour rejouer, actualiser la page - )";
+    rules.textContent = "Vous avez perdu la partie, vous n'avez pas pris soin de mon petit Pusheen... Je vais devoir m'occuper de lui et le consoler... Soyez plus attentif la prochaine fois! ( - pour rejouer, actualiser la page - )";
   }
 };
 
-// Fonction qui supprime le compte à rebours.
+// SUPPRESSION DU SET TIME OUT qui fait perdre une vie à Pushee,\\
 
-function stopDelais() {
+function stopTimerLoosingLife() {
   clearTimeout(t);
 }
 
@@ -101,48 +92,75 @@ function stopDelais() {
 
 
 function loopOfNeedsFeeding() {
-  declanchement();
-  feedingButton = true;
+  timerLoosingLife();
+  pusheenNeedsFood = true;
   screenOfNeeds(" 😋 Pusheen a très faim 🍽️ ", "alert");
   textSpan.style.display = "block";
   buttonFeed.style.backgroundColor = "yellow";
 }
 
 function loopOfNeedsHugging() {
-  declanchement();
-  huggingButton = true;
+  timerLoosingLife();
+  pusheenNeedsAhug = true;
   screenOfNeeds(" 🤗 Pusheen a besoin d'être caliné 👐 ", "alert");
   textSpan.style.display = "block";
   buttonHug.style.backgroundColor = "yellow";
 }
 
 function loopOfNeedsPlaying() {
-  declanchement();
-  playingButton = true;
+  timerLoosingLife();
+  pusheenNeedsToPlay = true;
   screenOfNeeds("Pusheen veut jouer ! 🤾‍♀️ ", "alert");
   textSpan.style.display = "block";
   buttonPlay.style.backgroundColor = "yellow";
 }
 
-// creation d'une fonction qui renvoie un chiffre aléatoire entre 1 & 3.
+/* 
+**
+**
+*
+CREATION DES ELEMENTS DE LA PAGE PRINCIPALE 
+* 
+**
+**
+*/
+var pusheenCV = creationElement("pusheen/cv.png", "pusheenCV", false);
+document.body.appendChild(pusheenCV);
 
-var generateAleatoireDeBesoin = function getRandomInt() {
+
+// EVENEMENT MOUSEOVER QUI CHANGE L'OPACITE DE LA BULLE \\
+var bubble = document.getElementById("thinkingbubble");
+pusheenCV.addEventListener("mouseover", function() {
+  bubble.style.opacity = 1;
+});
+
+bubble.addEventListener("click", function() {
+  open("./CV-fantine-rudent.pdf");
+});
+bubble.addEventListener("mouseout", function() {
+  bubble.style.opacity = 0.3;
+});
+
+
+// CREATION D'UNE FONCTION QUI GENERE UN  BESOIN ALEATOIREATOIREMENT ENTRE 1 ET 3 \\ 
+
+var generateRandomNeed = function getRandomInt() {
   var chiffreAleatoire = Math.floor(Math.random() * 3);
   switch (chiffreAleatoire) {
     case 0:
       setTimeout(loopOfNeedsFeeding, 10000);
       break;
-    case 1:
-      setTimeout(loopOfNeedsHugging, 10000);
-      break;
-    case 2:
+      case 1:
+        setTimeout(loopOfNeedsHugging, 10000);
+        break;
+        case 2:
       setTimeout(loopOfNeedsPlaying, 10000);
       break;
-    default:
-    }
-};
-
-// création de l'évenement lorsque toutes les compétences ont été débloquées.
+      default:
+      }
+    };
+    
+// CREATION DE L'EVENEMENT : Vous avez Gagné ! \\
 
 var youWin = function() {
   textSpan.style.fontSize = "20px";
@@ -154,107 +172,104 @@ var youWin = function() {
   textSpan.style.top = "-50px";
 };
 
-// début du jeu : au chargement de la page !
+// AU CHARGEMENT DE LA PAGE : le generateur de besoins aléatoires est lancé \\   
 
 $(function() {
-  generateAleatoireDeBesoin();
+  generateRandomNeed();
   rules.style.display = "block";
   rules.textContent =
-    "Bonjour et bienvenue. Aujourd'hui vous allez devoir prendre soin de mon petit chat, Pusheen ! Il a besoin de beaucoup d'attention, et que vous repondiez rapidement à ses besoins... Vous pouvez déplacer Pusheen à l'aide des flèches du clavier... Ne vous inquiètez pas, Pusheen sait tout à fait se faire comprendre lorsqu'il a besoin de quelque chose!";
+  "Bonjour et bienvenue. Soyez attentif aux besoins de mon Pusheen et il va vous en apprendre plus sur moi. Déplacez le à l'aide des touches :  ◀️ 🔼 🔽 ▶️ !";
 });
 
 
-/***
- * CREATION OF MY PUSHEEN CV
- */
+// CREATION DES PUSHEENS : 
 
-var pusheenCV = creationElement("pusheen/cv.png", "pusheenCV", false);
-document.body.appendChild(pusheenCV);
-
-/**
- * CREATION OF BUBBLE ' EVENT : when my mouse is over PusheenCV - a bubble appears - when I click on it, a page opens with my CV on PDF !
- */
-
-var bubble = document.getElementById("thinkingbubble");
-pusheenCV.addEventListener("mouseover", function() {
-  bubble.style.display = "block";
-});
-
-bubble.addEventListener("click", function() {
-  open("./CV-fantine-rudent.pdf");
-});
-bubble.addEventListener("mouseout", function() {
-  bubble.style.display = "none";
-});
-
-/**
- * CREATION OF "HUNGRY"pusheen
- */
-var pusheenHungry = creationElement(
-  "pusheen/hungry.png",
-  "pusheenHungry",
-  false
-);
-var bubbleFood = creationElement(
-  "pusheen/foodbubbleb.png",
-  "bubbleFood",
-  false
-);
+var pusheenHungry = creationElement( "pusheen/hungry.png","pusheenHungry", false);
+var bubbleFood = creationElement("pusheen/foodbubbleb.png","bubbleFood",false);
 var pusheenDonut = creationElement("pusheen/donut.png", "pusheenDonut", false);
+var pusheenHug = creationElement("pusheen/hug.png", "pusheenHug", false);
+var pusheenRolling = creationElement("pusheen/rolling.png", "pusheenRolling", false);
+var pusheenUnicorn = creationElement("pusheen/pusheenunicorn.png","pusheenUnicorn",false);
+var pusheenBad = creationElement("pusheen/pusheenBad.png", "pusheenBad", false);
+var pusheenVideoGame = creationElement("pusheen/pusheenplaying.png","pusheenVideoGame",false);
+var pusheenBalle = creationElement("pusheen/playing.png","pusheenBalle",false);
+
 
 pusheenDonut.style.display = "none";
 pusheenHungry.style.display = "none";
 bubbleFood.style.display = "none";
 
 
- /*
- * EVENT - FEEDING PUSHEEN
- *
- */
+/* 
+**
+**
+*
+// CREATION DE L'EVENEMENT 1) NOURRIR PUSHEEN : 
+**
+**
+*/
 
-var buttonFeed = document.getElementById("buttonFeed");
+var feedingFunction = function() {
+  textSpan.style.display = "none";
+  $("#ecranTamagoshi").removeClass("alert").addClass("regularEcranTamagoshi");
+
+  rules.textContent = "Vous devez attraper  le donut qui se balade dans la fenêtre et le faire glisser à l'intérieur de la bulle de pensée de Pusheen";
+  ecranTamagoshi.appendChild(pusheenHungry);
+  ecranTamagoshi.appendChild(bubbleFood);
+  ecranTamagoshi.appendChild(pusheenDonut);
+
+  rules.style.display = "block";
+  bubbleFood.style.display = "block";
+
+  pusheenHungry.style.display = "block";
+  flyingDonut.style.display = "block";
+
+  if (bubbleFood.style.backgroundColor === "yellow") {
+    bubbleFood.style.backgroundColor = "";
+  }
+};
+
 buttonFeed.addEventListener("click", function() {
-  
-  stopDelais();
-  if (feedingButton === true) {
-    feedingButton=false;
+  stopTimerLoosingLife();
+  if (pusheenNeedsFood === true) {
+    pusheenNeedsFood=false;
     feedingFunction();
   }
-}); // appel de la fonction feedingButton() présente dans le fichier fonctionnalites.js si le feedingButton est passé à true.
+}); 
 
 
 
-/***
- * EVENT - PUSHEEN HUG
- ***/
+/* 
+**
+**
+*
+// CREATION DE L'EVENEMENT 2) CALINER PUSHEEN : 
+**
+**
+*/
 
-/**
- *  CREATION OF A "HUG"PUSHEEN :
- */
-var pusheenHug = creationElement("pusheen/hug.png", "pusheenHug", false);
-var pusheenRolling = creationElement(
-  "pusheen/rolling.png",
-  "pusheenRolling",
-  false
-);
+var huggingFunction = function() {
+  textSpan.style.display = "none";
+  $("#ecranTamagoshi").removeClass("alert").addClass("regularEcranTamagoshi");
 
-/**
- *  Deuxieme fonctionnalité: caliner pusheen.
- */
+  rules.textContent = "Vous devez brosser Pusheen avec le peigne pendant plus de 4 secondes, maintenez bien le click de la souris enfoncé pendant 4 secondes sans interruption !";
+  pusheenRolling.style.cursor = "url('pusheen/brush.png'), auto";
+  pusheenRolling.style.display = "block";
+  spriteChat.style.display = "none";
+};
 
 ecranTamagoshi.appendChild(pusheenRolling);
 
 buttonHug.addEventListener("click", function() {
-     stopDelais();
-  if (huggingButton === true) {
-
-    huggingButton=false;
+     stopTimerLoosingLife();
+  if (pusheenNeedsAhug === true) {
+    pusheenNeedsAhug=false;
     huggingFunction();
     ecranTamagoshi.appendChild(pusheenHug);
   }
 });
 
-// utilisation of the events "mousedown" & "mouseup" - to calculate the time, during what the user is petting pusheen. The user must pet pusheen more than 5 secondes to get a point - and unlock one skill.
+// FONCTION POUR CALCULER LE TEMPS OU LE CLIC EST MAINTENU -sur Pusheen- POUR GAGNER LE POINT
 
 var start = 0;
 var end = 0;
@@ -268,13 +283,13 @@ pusheenRolling.addEventListener("mouseup", function() {
   total = end - start;
   
   if (total >= 4000) {
-    compteurDePoints++;
+    counterOfPoints++;
     rules.textContent =
     "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
 
     pusheenRolling.style.display = "none";
     pusheenHug.style.display = "block";
-    if (compteurDePoints >= 10) {
+    if (counterOfPoints >= 10) {
       youWin();
       screenOfNeeds(
         "Vous avez gagné !! Allez jeter un oeil sur les compétences que vous avez débloqué... Vous en apprendrez surement plus sur la personne à l'initiative de ce jeu !",
@@ -284,8 +299,8 @@ pusheenRolling.addEventListener("mouseup", function() {
       textSpan.style.display = "block";
     } else {
       setTimeout(function() {
-        generateAleatoireDeBesoin();
-        tableauxLogos[compteurDePoints].style.display = "initial";
+        generateRandomNeed();
+        arrayOfLogos[counterOfPoints].style.display = "initial";
         buttonHug.style.backgroundColor = "rgba(221, 17, 85, 1)";
         pusheenHug.style.display = "none";
         spriteChat.style.display = "block";
@@ -294,27 +309,14 @@ pusheenRolling.addEventListener("mouseup", function() {
   }
 });
 
-/**
- * EVENT  PLAYING PUSHEEN :
- *
- */
-
-var pusheenUnicorn = creationElement(
-  "pusheen/pusheenunicorn.png",
-  "pusheenUnicorn",
-  false
-);
-var pusheenBad = creationElement("pusheen/pusheenBad.png", "pusheenBad", false);
-var pusheenVideoGame = creationElement(
-  "pusheen/pusheenplaying.png",
-  "pusheenVideoGame",
-  false
-);
-var pusheenBalle = creationElement(
-  "pusheen/playing.png",
-  "pusheenBalle",
-  false
-);
+/* 
+**
+**
+*
+// CREATION DE L'EVENEMENT 3) JOUER AVEC PUSHEEN : 
+**
+**
+*/
 
 ecranTamagoshi.appendChild(pusheenUnicorn);
 ecranTamagoshi.appendChild(pusheenBalle);
@@ -323,10 +325,64 @@ ecranTamagoshi.appendChild(pusheenVideoGame);
 
 var buttonPlay = document.getElementById("buttonPlay");
 
+var playingFunction = function() {
+  textSpan.style.display = "none";
+  $("#ecranTamagoshi").removeClass("alert").addClass("regularEcranTamagoshi");
+  spriteChat.style.display = "none";
+  pusheenBad.style.display = "inline-block";
+  pusheenBad.style.opacity = 0.1;
+  pusheenBalle.style.display = "inline-block";
+  pusheenBalle.style.opacity = 0.1;
+  pusheenUnicorn.style.display = "inline-block";
+  pusheenUnicorn.style.opacity = 0.1;
+  pusheenVideoGame.style.display = "inline-block";
+  pusheenVideoGame.style.opacity = 0.1;
+  rules.textContent = "Pour faire jouer Pusheen, vous allez devoir trouver un moyen de faire complétement apparaitre les 4 petites images ... indice: vous pouvez survoler, cliquer ou... Essayer de taper quelque chose pour voir ? Quand c'est fini : cliquez sur ce bouton ==> ";
+  var buttonToAdd = document.createElement("button");
+  buttonToAdd.textContent = "cliquez - ici ! ";
+  rules.appendChild(buttonToAdd);
+  buttonToAdd.addEventListener("click", function() {
+    if (
+      pusheenBalle.style.opacity >= "1" &&
+      pusheenBad.style.opacity >= "1" &&
+      pusheenUnicorn.style.opacity >= "1" &&
+      pusheenVideoGame.style.opacity >= "1"
+    ) {
+      pusheenUnicorn.style.display = "none";
+      pusheenBalle.style.display = "none";
+      pusheenBad.style.display = "none";
+      pusheenVideoGame.style.display = "none";
+      spriteChat.style.display = "block";
+      counterOfPoints+=2;
+      if (counterOfPoints >= 10) {
+        youWin();
+        screenOfNeeds(
+          "Vous avez gagné !! Allez jeter un oeil sur les compétences que vous avez débloqué... Vous en apprendrez surement plus sur la personne à l'initiative de ce jeu !",
+          "alert"
+        );
+        textSpan.style.display = "block";
+      } else {
+        arrayOfLogos[counterOfPoints].style.display = "initial";
+        arrayOfLogos[counterOfPoints-1].style.display = "initial";
+        rules.textContent =
+          "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
+        generateRandomNeed();
+        opacityPusheenBad = 0.1;
+        opacityPusheenBalle = 0.1;
+        opacityPusheenUnicorn = 0.1;
+        opacityPusheenVideoGame = 0.1;
+        buttonPlay.style.backgroundColor = "rgba(221, 17, 85, 1)";
+      }
+    }
+  });
+};
+
+
+
 buttonPlay.addEventListener("click", function() {
-  stopDelais();
-  if (playingButton === true) {
-    playingButton=false;
+  stopTimerLoosingLife();
+  if (pusheenNeedsToPlay === true) {
+    pusheenNeedsToPlay=false;
     playingFunction();
   }
 });
@@ -363,3 +419,77 @@ pusheenUnicorn.addEventListener("mouseover", function() {
   pusheenUnicorn.style.opacity = opacityPusheenUnicorn;
 });
 
+
+
+//  GESTION DE L'EVENEMENT COMPETENCES \\
+// détail de chacun des logos au hover  \\
+
+var detailCompetence = document.getElementById("detailCompetence");
+
+var affichageCompetence = function(message) {
+  detailCompetence.textContent = message;
+  detailCompetence.style.display = "block";
+};
+
+logos.addEventListener("mouseout", function() {
+  affichageCompetence("");
+  detailCompetence.style.display = "none";
+});
+
+cat.addEventListener("mouseover", function() {
+  affichageCompetence(
+    "Adoratrice de chats depuis 1992, heureuse maman chat de Nine"
+  );
+});
+
+manette.addEventListener("mouseover", function() {
+  affichageCompetence(
+    "Grande geek depuis la nuit des temps:mes grands frères comme tuteurs, une nintendo 64 et warcraft à mes débuts..."
+  );
+});
+
+love.addEventListener("mouseover", function() {
+  affichageCompetence(
+    'Le social fait partie de moi: bénévole dans l\'association "Comme les autres" depuis 2015, qui accompagne les personnes en situation de handicap, suite à un accident de la vie, dans leur parcours de reconstruction... '
+  );
+});
+
+funny.addEventListener("mouseover", function() {
+  affichageCompetence(
+    "De nature joviale, j'ai toujours le mot pour rire et je suis très souvent souriante"
+  );
+});
+
+babysit.addEventListener("mouseover", function() {
+  affichageCompetence(
+    "J'ai commencé ma carrière professionnelle en tant qu'éducatrice de jeunes enfants... J'ai aussi passé une année aux USA en tant que fille au pair de Liam/Hudson/Keaton."
+  );
+});
+
+angular.addEventListener("mouseover", function() {
+  affichageCompetence("Formée en Angular 8 et TypeScript");
+});
+
+css.addEventListener("mouseover", function() {
+  affichageCompetence("Formée en CSS3");
+});
+
+html.addEventListener("mouseover", function() {
+  affichageCompetence("Formée en HTML5");
+});
+
+js.addEventListener("mouseover", function() {
+  affichageCompetence(
+    "Formée en JavaScript, tout d'abord en ligne via OpenClassRoom, puis par le biais de la formation \"Developpeur full Stack JS\" à l'IFOCOP -Paris XI- d'Octobre 2019 à Juin 2020."
+  );
+});
+
+nodejs.addEventListener("mouseover", function() {
+  affichageCompetence("Formée en NodeJs ainsi qu'en MongoDB");
+});
+
+steam.addEventListener("mouseover", function() {
+  affichageCompetence(
+    "Actuellement sur le jeu Life is Strange 2 de Square Enix (une pure merveille), et utilisatrice régulière de la Nintendo Switch "
+  );
+});

@@ -102,11 +102,12 @@ h2 {
 
 #thinkingbubble {
   position: absolute;
-  width: 19vw;
-  height: 37vh;
-  left: 65%;
-  bottom: 20%;
-  display: none;
+  width: 12%;
+  height: 28%;
+  left: 73%;
+  bottom: 10%;
+  opacity: 0.3;
+
 }
 
 #contenu {
@@ -216,7 +217,7 @@ p {
 
 #rules {
   border: 10px double rgba(106, 1, 54, 1);
-  box-shadow: 2px 2px 69px 11px rgba(238, 126, 139, 0.81) inset;
+  box-shadow: 2px 2px 69px 11px rgba(255, 82, 103, 0.753) inset;
   -webkit-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
   -moz-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
   font-family: 'Alatsi', sans-serif;
@@ -224,11 +225,10 @@ p {
   font-size: 1em;
   left: 5%;
   top: 5%;
-  padding: 10px;
   border-radius: 30px;
   background-color: rgba(160, 26, 125, 1);
-  color: rgb(51, 2, 27);
-  width: 22vw;
+  color:rgba(237, 174, 73, 1);
+  width: 22%;
   display: none;
   padding: 20px;
 }

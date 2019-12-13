@@ -50,7 +50,7 @@ window.addEventListener("load", function() {
 
         break;
       case 39:
-        if (masqueX <= 180) {
+        if (masqueX <= 175) {
           masqueX += 4;
           masque.style.left = masqueX + "px";
           if (spriteChat.style.top == "0px" || spriteChat.style.top == "") {
@@ -67,7 +67,7 @@ window.addEventListener("load", function() {
         break;
 
       case 40:
-        if (masqueY <= 140) {
+        if (masqueY <= 135) {
           masqueY += 4;
           masque.style.top = masqueY + "px";
           if (spriteChat.style.top == "0px" || spriteChat.style.top == "") {
@@ -81,19 +81,6 @@ window.addEventListener("load", function() {
           spriteChat.style.left = "-210px";
           spriteChat.style.top = "-198px";
         }
-
-      /**
-       *  LA j'ai envie de rajouter une fonctionnalité miaou qd on appuie sur Espace.
-       *
-       */
-      // window.onkeyup = function(event) {
-      //   var code = event.keyCode;
-      //   if (code === 13) {
-      //     spriteChat.style.left = "0px";
-      //     spriteChat.style.top = "0px";
-      //   }
-      // };
-      //
     }
   };
 });

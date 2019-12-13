@@ -4,8 +4,8 @@
   var flyingDonut = creationElement("pusheen/donutfood.png", "flyingDonut", true);
   document.body.appendChild(flyingDonut);
   
-//  *  HANDLING THE MOVING OF THE FLYING DONUT HERE :
-//  *
+//  *  
+      // EVENEMENT AUTOUR DU DONUT VOLANT :
 //  */
 
 var xDonut =0;
@@ -58,12 +58,12 @@ flyingDonut.addEventListener("dragstart", function(event) {
   //  EVENT QUAND ON LACHE LE DONUT SUR LA FENETRE : DROP
   bubbleFood.addEventListener("drop", function(event) {
     event.preventDefault();
-    compteurDePoints++;
+    counterOfPoints++;
     bubbleFood.style.display = "none";
     pusheenHungry.style.display = "none";
     flyingDonut.style.display = "none";
     pusheenDonut.style.display = "block";
-    if (compteurDePoints >= 10) {
+    if (counterOfPoints >= 10) {
       youWin();
       pusheenDonut.style.display = "none";
       screenOfNeeds(
@@ -72,12 +72,12 @@ flyingDonut.addEventListener("dragstart", function(event) {
       );
       textSpan.style.display = "block";
     } else {
-      tableauxLogos[compteurDePoints].style.display = "initial";
-      generateAleatoireDeBesoin();
+      arrayOfLogos[counterOfPoints].style.display = "initial";
+      generateRandomNeed();
       setTimeout(function() {
         rules.textContent =
           "Promenez Pusheen.. Il a besoin de se dégourdir les pattes!";
-        feedingButton = false;
+        pusheenNeedsFood = false;
   
         buttonFeed.style.backgroundColor = "rgba(221, 17, 85, 1)";
         pusheenDonut.style.display = "none";
