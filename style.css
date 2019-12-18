@@ -12,6 +12,7 @@ $color5: rgba(106, 1, 54, 1); */
 *****************************************************************/
 
 body {
+  cursor: pointer;
   overflow: hidden;
   font-family: 'Solway', serif;
   height: 100vh;
@@ -41,10 +42,21 @@ h1 {
 h2 {
   font-size: 1.1em;
   width: 51vw;
+  height: 5%;
   position: relative;
+  color: blanchedalmond;
   left: 45%;
   border: pink 4px dashed;
   border-radius: 40px;
+  padding-top: 11px;
+}
+
+p {
+  font-size: 1.3em;
+  text-align: center;
+  text-decoration-line: underline;
+  position: relative;
+  top: -28px;
 }
 
 /****************************************************************
@@ -73,6 +85,26 @@ h2 {
   border-radius: 120px 120px 60px 60px;
   border: solid rgba(245, 100, 118, 1) 4px;
 }
+
+.regularEcranTamagoshi {
+  background-color: rgba(237, 174, 73, 1);
+}
+
+.alert {
+  background-color: pink;
+  font-size: 50px;
+  text-align: center;
+}
+
+#texte {
+  position: relative;
+  top: -40px;
+  font-size: 0.5em;
+}
+
+/****************************************************************
+****************************BOUTONS *****************************
+*****************************************************************/
 
 #buttonPlay, #buttonHug, #buttonFeed {
   width: 50px;
@@ -107,8 +139,11 @@ h2 {
   left: 73%;
   bottom: 10%;
   opacity: 0.3;
-
 }
+
+/****************************************************************
+****************************SPRITE CHAT***********************
+*****************************************************************/
 
 #contenu {
   position: relative;
@@ -124,6 +159,10 @@ h2 {
   height: 83px;
   width: 80px;
 }
+
+/****************************************************************
+****************************LES PUSHEENS***********************
+*****************************************************************/
 
 #pusheenCV {
   position: absolute;
@@ -151,7 +190,7 @@ h2 {
   height: 70%;
   width: 70%w;
   left: -80px;
-  top:-40px;
+  top: -40px;
   display: none;
 }
 
@@ -163,6 +202,13 @@ h2 {
   top: 70px;
 }
 
+#pusheenWink {
+  display: none;
+  position: relative;
+  height: 100%;
+  top: -77px
+}
+
 #pusheenDonut {
   position: relative;
   height: 70%;
@@ -170,20 +216,35 @@ h2 {
   left: 20px
 }
 
+#pusheenUnicorn, #pusheenBad, #pusheenBalle, #pusheenVideoGame {
+  height: 42%;
+  position: relative;
+  display: none;
+  top: -67px;
+  left: 1%;
+}
+
 #flyingDonut {
   position: absolute;
   height: 100px;
   display: none;
-
 }
 
-p {
-  font-size: 1.3em;
-  text-align: center;
-  text-decoration-line: underline;
+#pusheenSad {
   position: relative;
-  top: -28px;
+  top: -32px;
+  height: 110px;
 }
+
+#pusheenCrying {
+  top: -57px;
+  height: 147px;
+  position: relative;
+}
+
+/****************************************************************
+****************************COMPETENCES ***********************
+*****************************************************************/
 
 #boite {
   border: 10px double rgba(106, 1, 54, 1);
@@ -202,69 +263,16 @@ p {
   width: 23vw;
 }
 
-.logo {
-  height: 7vh;
-  width: 2.8vw;
-  display: none;
-  padding: 4px;
+.fab, .fas {
+  padding: 6px;
+  font-size: 2.5em;
+  color: blanchedalmond;
 }
 
 #logos {
   top: -5vh;
   position: relative;
   flex: row;
-}
-
-#rules {
-  border: 10px double rgba(106, 1, 54, 1);
-  box-shadow: 2px 2px 69px 11px rgba(255, 82, 103, 0.753) inset;
-  -webkit-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
-  -moz-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
-  font-family: 'Alatsi', sans-serif;
-  position: relative;
-  font-size: 1em;
-  left: 5%;
-  top: 5%;
-  border-radius: 30px;
-  background-color: rgba(160, 26, 125, 1);
-  color:rgba(237, 174, 73, 1);
-  width: 22%;
-  display: none;
-  padding: 20px;
-}
-
-#pusheenUnicorn, #pusheenBad, #pusheenBalle, #pusheenVideoGame {
-  height: 42%;
-  position: relative;
-  display: none;
-  top: -67px;
-  left: 1%;
-}
-
-button {
-  height: 30px;
-  width: 100px;
- border: 4px red solid;
- border-radius: 30px;
- font-style: italic;
- font-family: 'Solway', serif;
-  background-color: yellow;
-}
-
-.regularEcranTamagoshi {
-  background-color: rgba(237, 174, 73, 1);
-}
-
-.alert {
-  background-color: pink;
-  font-size: 50px;
-  text-align: center;
-}
-
-#texte {
-  position: relative;
-  top: -40px;
-  font-size: 0.5em;
 }
 
 #detailCompetence {
@@ -281,14 +289,24 @@ button {
   top: -3vh;
 }
 
-#pusheenSad {
-  position: relative;
-  top: -32px;
-  height: 110px;
-}
+/****************************************************************
+*************************** REGLES DU JEU ***********************
+*****************************************************************/
 
-#pusheenCrying {
-  top: -57px;
-  height: 147px;
+#rules {
+  border: 10px double rgba(106, 1, 54, 1);
+  box-shadow: 2px 2px 69px 11px rgba(255, 82, 103, 0.753) inset;
+  -webkit-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
+  -moz-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
+  font-family: 'Alatsi', sans-serif;
   position: relative;
+  font-size: 1em;
+  left: 5%;
+  top: 5%;
+  border-radius: 30px;
+  background-color: rgba(160, 26, 125, 1);
+  color: rgba(237, 174, 73, 1);
+  width: 22%;
+  display: none;
+  padding: 20px;
 }

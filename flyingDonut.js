@@ -8,9 +8,10 @@
       // EVENEMENT AUTOUR DU DONUT VOLANT :
 //  */
 
-var xDonut =0;
+var xDonut = 0;
 var yDonut = 0;
 var valeurDeplacementX = 1;
+
 var valeurDeplacementY = 1;
 
 
