@@ -15,6 +15,7 @@ var rules = document.getElementById("rules");
 var masque = document.getElementById("container");
 var textSpan = document.getElementById("texte");
 var numberOfLifes = 2;
+var audio = document.getElementById("catsound");
 
 // CREATION DE TROIS VARIABLES STOCKANT DES BOLEANS QUI VONT \\
 // RENDRE LES BOUTONS UTILISABLES EN FONCTION DES BESOINS DE PUSHEEN\\
@@ -108,6 +109,7 @@ function stopTimerLoosingLife() {
 function loopOfNeedsFeeding() {
   timerLoosingLife();
   pusheenNeedsFood = true;
+  audio.play();
   screenOfNeeds(" 😋 Pusheen a très faim 🍽️ ", "alert");
   textSpan.style.display = "block";
   buttonFeed.style.backgroundColor = "yellow";
@@ -115,6 +117,7 @@ function loopOfNeedsFeeding() {
 
 function loopOfNeedsHugging() {
   timerLoosingLife();
+  audio.play();
   pusheenNeedsAhug = true;
   screenOfNeeds(" 🤗 Pusheen a besoin d'être caliné 👐 ", "alert");
   textSpan.style.display = "block";
@@ -123,6 +126,7 @@ function loopOfNeedsHugging() {
 
 function loopOfNeedsPlaying() {
   timerLoosingLife();
+  audio.play();
   pusheenNeedsToPlay = true;
   screenOfNeeds("Pusheen veut jouer ! 🤾‍♀️ ", "alert");
   textSpan.style.display = "block";
@@ -140,6 +144,7 @@ CREATION DES ELEMENTS DE LA PAGE PRINCIPALE
 */
 var pusheenCV = creationElement("pusheen/cv.png", "pusheenCV", false);
 document.body.appendChild(pusheenCV);
+
 
 // EVENEMENT MOUSEOVER QUI CHANGE L'OPACITE DE LA BULLE \\
 var bubble = document.getElementById("thinkingbubble");
