@@ -188,7 +188,7 @@ p {
 #pusheenHug {
   position: relative;
   height: 70%;
-  width: 70%w;
+  width: 70%;
   left: -80px;
   top: -40px;
   display: none;
@@ -249,8 +249,6 @@ p {
 #boite {
   border: 10px double rgba(106, 1, 54, 1);
   box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
-  -webkit-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
-  -moz-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
   color: rgba(245, 100, 118, 1);
   font-family: 'Alatsi', sans-serif;
   position: absolute;
@@ -272,7 +270,6 @@ p {
 #logos {
   top: -5vh;
   position: relative;
-  flex: row;
 }
 
 #detailCompetence {
@@ -296,8 +293,6 @@ p {
 #rules {
   border: 10px double rgba(106, 1, 54, 1);
   box-shadow: 2px 2px 69px 11px rgba(255, 82, 103, 0.753) inset;
-  -webkit-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
-  -moz-box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
   font-family: 'Alatsi', sans-serif;
   position: relative;
   font-size: 1em;
