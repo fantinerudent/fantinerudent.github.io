@@ -11,296 +11,290 @@ $color5: rgba(106, 1, 54, 1); */
 ********************************BODY*****************************
 *****************************************************************/
 
-body {
-  cursor: pointer;
-  overflow: hidden;
-  font-family: 'Solway', serif;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  background-image: url("./fondpattern.png");
+@media screen and (max-width: 900px) {
+  body {
+    background-image: url(./fondmobile.jpg);
+    background-size: cover;
+    /* display:flex;
+    flex-direction: column;
+    justify-content: center; */
+  }
+  h1, h2, img, p, #rules, #text, #contenu, #texte {
+    display: none !important;
+  }
+  #mobile {
+    font-size: 1.6em;
+    width: 50%;
+    height: fit-content;
+    left: 20vw;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: blanchedalmond;
+    background-color: rgba(106, 1, 54, 1);
+    border: pink 4px dashed;
+    border-radius: 40px;
+    padding: 20px;
+  }
 }
 
-h1, h2 {
-  text-align: center;
-  background-color: rgba(245, 100, 118, 1);
-}
-
-h1 {
-  width: 37vw;
-  border-radius: 20px;
-  border: 4px dashed rgba(106, 1, 54, 1);
-  position: relative;
-  left: 35%;
-  box-shadow: 6px 3px 16px 7px rgb(237, 174, 73), inset -6px -8px 13px 2px rgb(106, 1, 54);
-  height: 11vh;
-  font-size: 3em;
-  font-variant: diagonal-fractions;
-  color: blanchedalmond;
-}
-
-h2 {
-  font-size: 1.1em;
-  width: 51vw;
-  height: 5%;
-  position: relative;
-  color: blanchedalmond;
-  left: 45%;
-  border: pink 4px dashed;
-  border-radius: 40px;
-  padding-top: 11px;
-}
-
-p {
-  font-size: 1.3em;
-  text-align: center;
-  text-decoration-line: underline;
-  position: relative;
-  top: -28px;
-}
-
-/****************************************************************
-****************************ECRAN TAMAGOSHI***********************
-*****************************************************************/
-
-#ecranTamagoshi {
-  height: 70%;
-  width: 82%;
-  position: relative;
-  left: 8%;
-  top: 20px;
-  border: solid rgba(245, 100, 118, 1) 3px;
-  border-radius: 80px 80px 50px 50px;
-  overflow: hidden;
-  content: '';
-}
-
-#outsideScreen {
-  position: absolute;
-  top: 40vh;
-  left: 39vw;
-  width: 300px;
-  height: 325px;
-  background-color: rgba(106, 1, 54, 1);
-  border-radius: 120px 120px 60px 60px;
-  border: solid rgba(245, 100, 118, 1) 4px;
-}
-
-.regularEcranTamagoshi {
-  background-color: rgba(237, 174, 73, 1);
-}
-
-.alert {
-  background-color: pink;
-  font-size: 50px;
-  text-align: center;
-}
-
-#texte {
-  position: relative;
-  top: -40px;
-  font-size: 0.5em;
-}
-
-/****************************************************************
-****************************BOUTONS *****************************
-*****************************************************************/
-
-#buttonPlay, #buttonHug, #buttonFeed {
-  width: 50px;
-  height: 50px;
-  border-radius: 40px;
-  background: rgba(221, 17, 85, 1);
-  position: relative;
-}
-
-#buttonPlay {
-  position: relative;
-  left: 74%;
-  bottom: -29px;
-}
-
-#buttonHug {
-  position: relative;
-  left: 42%;
-  bottom: 21px;
-}
-
-#buttonFeed {
-  position: relative;
-  left: 10%;
-  bottom: 22%;
-}
-
-#thinkingbubble {
-  position: absolute;
-  width: 12%;
-  height: 28%;
-  left: 73%;
-  bottom: 10%;
-  opacity: 0.3;
-}
-
-/****************************************************************
-****************************SPRITE CHAT***********************
-*****************************************************************/
-
-#contenu {
-  position: relative;
-  display: none;
-  height: 400px;
-  left: -210px;
-  top: -200px
-}
-
-#container {
-  position: relative;
-  overflow: hidden;
-  height: 83px;
-  width: 80px;
-}
-
-/****************************************************************
-****************************LES PUSHEENS***********************
-*****************************************************************/
-
-#pusheenCV {
-  position: absolute;
-  left: 83vw;
-  bottom: 0px;
-  height: 22vh;
-}
-
-#pusheenHungry {
-  position: absolute;
-  height: 57%;
-  bottom: 7%;
-  left: -3%;
-}
-
-#bubbleFood {
-  position: absolute;
-  height: 48%;
-  left: 50%;
-  top: 3%;
-}
-
-#pusheenHug {
-  position: relative;
-  height: 70%;
-  left: -80px;
-  top: -40px;
-  display: none;
-}
-
-#pusheenRolling {
-  display: none;
-  position: absolute;
-  height: 62%;
-  width: 100%;
-  top: 70px;
-}
-
-#pusheenWink {
-  display: none;
-  position: relative;
-  height: 100%;
-  top: -77px
-}
-
-#pusheenDonut {
-  position: relative;
-  height: 70%;
-  bottom: 30px;
-  left: 20px
-}
-
-#pusheenUnicorn, #pusheenBad, #pusheenBalle, #pusheenVideoGame {
-  height: 42%;
-  position: relative;
-  display: none;
-  top: -67px;
-  left: 1%;
-}
-
-#flyingDonut {
-  position: absolute;
-  height: 100px;
-  display: none;
-}
-
-#pusheenSad {
-  position: relative;
-  top: -32px;
-  height: 110px;
-}
-
-#pusheenCrying {
-  top: -57px;
-  height: 147px;
-  position: relative;
-}
-
-/****************************************************************
-****************************COMPETENCES ***********************
-*****************************************************************/
-
-#boite {
-  border: 10px double rgba(106, 1, 54, 1);
-  box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
-  color: rgba(245, 100, 118, 1);
-  font-family: 'Alatsi', sans-serif;
-  position: absolute;
-  left: 72vw;
-  top: 30vh;
-  border-radius: 30px;
-  background-color: rgba(160, 26, 125, 1);
-  padding: 10px;
-  height: 24vh;
-  width: 23vw;
-}
-
-.fab, .fas {
-  padding: 6px;
-  font-size: 2.5em;
-  color: blanchedalmond;
-}
-
-#logos {
-  top: -5vh;
-  position: relative;
-}
-
-#detailCompetence {
-  font-family: 'Alatsi';
-  background-color: rgba(237, 174, 73, 1);
-  color: rgba(106, 1, 54, 1);
-  font-size: 20px;
-  position: relative;
-  z-index: 2;
-  border: 4px red dashed;
-  padding: 10px;
-  border-radius: 40px;
-  display: none;
-  top: -3vh;
-}
-
-/****************************************************************
-*************************** REGLES DU JEU ***********************
-*****************************************************************/
-
-#rules {
-  border: 10px double rgba(106, 1, 54, 1);
-  box-shadow: 2px 2px 69px 11px rgba(255, 82, 103, 0.753) inset;
-  font-family: 'Alatsi', sans-serif;
-  position: relative;
-  font-size: 1em;
-  left: 5%;
-  top: 5%;
-  border-radius: 30px;
-  background-color: rgba(160, 26, 125, 1);
-  color: rgba(237, 174, 73, 1);
-  width: 22%;
-  display: none;
-  padding: 20px;
+@media screen and (min-width: 900px) {
+  body {
+    cursor: pointer;
+    overflow: hidden;
+    font-family: 'Solway', serif;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-image: url("./fondpattern.png");
+  }
+  #mobile {
+    display: none;
+  }
+  h1, h2 {
+    text-align: center;
+    background-color: rgba(245, 100, 118, 1);
+  }
+  h1 {
+    width: 37vw;
+    border-radius: 20px;
+    border: 4px dashed rgba(106, 1, 54, 1);
+    position: relative;
+    left: 35%;
+    box-shadow: 6px 3px 16px 7px rgb(237, 174, 73), inset -6px -8px 13px 2px rgb(106, 1, 54);
+    height: 11vh;
+    font-size: 3em;
+    font-variant: diagonal-fractions;
+    color: blanchedalmond;
+  }
+  h2 {
+    font-size: 1.1em;
+    width: 51vw;
+    height: 5%;
+    position: relative;
+    color: blanchedalmond;
+    left: 45%;
+    border: pink 4px dashed;
+    border-radius: 40px;
+    padding-top: 11px;
+  }
+  p {
+    font-size: 1.3em;
+    text-align: center;
+    text-decoration-line: underline;
+    position: relative;
+    top: -28px;
+  }
+  /****************************************************************
+  ****************************ECRAN TAMAGOSHI***********************
+  *****************************************************************/
+  #ecranTamagoshi {
+    height: 70%;
+    width: 82%;
+    position: relative;
+    left: 8%;
+    top: 20px;
+    border: solid rgba(245, 100, 118, 1) 3px;
+    border-radius: 80px 80px 50px 50px;
+    overflow: hidden;
+    content: '';
+  }
+  #outsideScreen {
+    position: absolute;
+    top: 40vh;
+    left: 39vw;
+    width: 300px;
+    height: 325px;
+    background-color: rgba(106, 1, 54, 1);
+    border-radius: 120px 120px 60px 60px;
+    border: solid rgba(245, 100, 118, 1) 4px;
+  }
+  .regularEcranTamagoshi {
+    background-color: rgba(237, 174, 73, 1);
+  }
+  .alert {
+    background-color: pink;
+    font-size: 50px;
+    text-align: center;
+  }
+  #texte {
+    position: relative;
+    top: -40px;
+    font-size: 0.5em;
+  }
+  /****************************************************************
+  ****************************BOUTONS *****************************
+  *****************************************************************/
+  #buttonPlay, #buttonHug, #buttonFeed {
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+    background: rgba(221, 17, 85, 1);
+    position: relative;
+  }
+  #buttonPlay {
+    position: relative;
+    left: 74%;
+    bottom: -29px;
+  }
+  #buttonHug {
+    position: relative;
+    left: 42%;
+    bottom: 21px;
+  }
+  #buttonFeed {
+    position: relative;
+    left: 10%;
+    bottom: 22%;
+  }
+  #thinkingbubble {
+    position: absolute;
+    width: 12%;
+    height: 28%;
+    left: 73%;
+    bottom: 10%;
+    opacity: 0.3;
+  }
+  /****************************************************************
+  ****************************SPRITE CHAT***********************
+  *****************************************************************/
+  #contenu {
+    position: relative;
+    display: none;
+    height: 400px;
+    left: -210px;
+    top: -200px
+  }
+  #container {
+    position: relative;
+    overflow: hidden;
+    height: 83px;
+    width: 80px;
+  }
+  /****************************************************************
+  ****************************LES PUSHEENS***********************
+  *****************************************************************/
+  #pusheenCV {
+    position: absolute;
+    left: 83vw;
+    bottom: 0px;
+    height: 22vh;
+  }
+  #pusheenHungry {
+    position: absolute;
+    height: 57%;
+    bottom: 7%;
+    left: -3%;
+  }
+  #bubbleFood {
+    position: absolute;
+    height: 48%;
+    left: 50%;
+    top: 3%;
+  }
+  #pusheenHug {
+    position: relative;
+    height: 70%;
+    left: -80px;
+    top: -40px;
+    display: none;
+  }
+  #pusheenRolling {
+    display: none;
+    position: absolute;
+    height: 62%;
+    width: 100%;
+    top: 70px;
+  }
+  #pusheenWink {
+    display: none;
+    position: relative;
+    height: 100%;
+    top: -77px
+  }
+  #pusheenDonut {
+    position: relative;
+    height: 70%;
+    bottom: 30px;
+    left: 20px
+  }
+  #pusheenUnicorn, #pusheenBad, #pusheenBalle, #pusheenVideoGame {
+    height: 42%;
+    position: relative;
+    display: none;
+    top: -67px;
+    left: 1%;
+  }
+  #flyingDonut {
+    position: absolute;
+    height: 100px;
+    display: none;
+  }
+  #pusheenSad {
+    position: relative;
+    top: -32px;
+    height: 110px;
+  }
+  #pusheenCrying {
+    top: -57px;
+    height: 147px;
+    position: relative;
+  }
+  /****************************************************************
+  ****************************COMPETENCES ***********************
+  *****************************************************************/
+  #boite {
+    border: 10px double rgba(106, 1, 54, 1);
+    box-shadow: 2px 2px 69px 11px rgba(245, 100, 118, 0.81) inset;
+    color: rgba(245, 100, 118, 1);
+    font-family: 'Alatsi', sans-serif;
+    position: absolute;
+    left: 72vw;
+    top: 30vh;
+    border-radius: 30px;
+    background-color: rgba(160, 26, 125, 1);
+    padding: 10px;
+    height: 24vh;
+    width: 23vw;
+  }
+  .fab, .fas {
+    padding: 6px;
+    font-size: 2.5em;
+    color: blanchedalmond;
+  }
+  #logos {
+    top: -5vh;
+    position: relative;
+  }
+  #detailCompetence {
+    font-family: 'Alatsi';
+    background-color: rgba(237, 174, 73, 1);
+    color: rgba(106, 1, 54, 1);
+    font-size: 20px;
+    position: relative;
+    z-index: 2;
+    border: 4px red dashed;
+    padding: 10px;
+    border-radius: 40px;
+    display: none;
+    top: -3vh;
+  }
+  /****************************************************************
+  *************************** REGLES DU JEU ***********************
+  *****************************************************************/
+  #rules {
+    border: 10px double rgba(106, 1, 54, 1);
+    box-shadow: 2px 2px 69px 11px rgba(255, 82, 103, 0.753) inset;
+    font-family: 'Alatsi', sans-serif;
+    position: relative;
+    font-size: 1em;
+    left: 5%;
+    top: 5%;
+    border-radius: 30px;
+    background-color: rgba(160, 26, 125, 1);
+    color: rgba(237, 174, 73, 1);
+    width: 22%;
+    display: none;
+    padding: 20px;
+  }
 }
